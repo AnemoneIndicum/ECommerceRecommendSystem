@@ -1,0 +1,38 @@
+在flume的conf目录下新建log-kafka.properties，对flume连接kafka做配置：
+
+agent.sources = exectail
+agent.channels = memoryChannel
+agent.sinks = kafkasink
+
+# For each one of the sources, the type is defined
+agent.sources.exectail.type = exec
+# 下面这个路径是需要收集日志的绝对路径，改为自己的日志目录
+agent.sources.exectail.command = tail –f
+/mnt/d/Projects/BigData/ECommerceRecommenderSystem/businessServer/src/main/log/agent.log
+agent.sources.exectail.interceptors=i1
+agent.sources.exectail.interceptors.i1.type=regex_filter
+# 定义日志过滤前缀的正则
+agent.sources.exectail.interceptors.i1.regex=.+PRODUCT_RATING_PREFIX.+
+# The channel can be defined as follows.
+agent.sources.exectail.channels = memoryChannel
+
+# Each sink's type must be defined
+agent.sinks.kafkasink.type = org.apache.flume.sink.kafka.KafkaSink
+agent.sinks.kafkasink.kafka.topic = log
+agent.sinks.kafkasink.kafka.bootstrap.servers = localhost:9092
+agent.sinks.kafkasink.kafka.producer.acks = 1
+agent.sinks.kafkasink.kafka.flumeBatchSize = 20
+
+#Specify the channel the sink should use
+agent.sinks.kafkasink.channel = memoryChannel
+
+# Each channel's type is defined.
+agent.channels.memoryChannel.type = memory
+
+# Other config values specific to each type of channel(sink or source)
+# can be defined as well
+# In this case, it specifies the capacity of the memory channel
+agent.channels.memoryChannel.capacity = 10000
+
+配置好后，启动flume：
+./bin/flume-ng agent -c ./conf/ -f ./conf/log-kafka.properties -n agent -Dflume.root.logger=INFO,console
