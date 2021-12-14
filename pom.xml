@@ -39,7 +39,7 @@
         <assembly.version>3.1.1</assembly.version>
         <net.alchim31.version>4.0.0</net.alchim31.version>
         <java.compiler.version>3.8.1</java.compiler.version>
-        <log4j-core.version>2.8.2</log4j-core.version>
+        <log4j-core.version>2.16.0</log4j-core.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <jedis.version>3.1.0</jedis.version>
         <jblas.version>1.2.4</jblas.version>
