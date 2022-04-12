@@ -19,7 +19,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <hadoop.version>2.8.4</hadoop.version>
+        <hadoop.version>3.2.3</hadoop.version>
         <test.version>4.11</test.version>
         <scala.version>2.11.8</scala.version>
         <lombok.version>1.16.20</lombok.version>
