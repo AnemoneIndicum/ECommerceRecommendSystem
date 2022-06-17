@@ -31,7 +31,7 @@
         <comm.pool2.version>2.7.0</comm.pool2.version>
         <spark-streaming-kafka.version>1.6.3</spark-streaming-kafka.version>
         <kafka.version>2.1.0</kafka.version>
-        <fastjson-version>1.2.47</fastjson-version>
+        <fastjson-version>1.2.83</fastjson-version>
         <casbah.version>3.1.1</casbah.version>
         <mongodb-spark.version>2.4.1</mongodb-spark.version>
         <elasticsearch.version>7.0.0</elasticsearch.version>
